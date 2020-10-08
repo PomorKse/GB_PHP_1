@@ -1,131 +1,203 @@
 <?php
-//Задание №1
-/*$a = -2;
-$b = 3;
-if ($a >= 0 && $b >= 0) 
-  echo $a - $b;
-elseif ($a < 0 && $b < 0)
-  echo $a * $b;
-else
-  echo $a +$b;*/
+/*//Задание №1
+$i = 0;
+while ($i <= 100) {
+  if ($i % 3 == 0) 
+    echo $i . "<br>";
+  $i++;
+}
 
 //Задание №2
-/*$a = 3;
-switch ($a) {
-  case '1':
-    echo '1 <br>';
-    $a++;
-  case '2':
-    echo '2 <br>';
-    $a++;
-  case '3':
-    echo '3 <br>';
-    $a++; 
-  case '4':
-    echo '4 <br>';
-    $a++; 
-  case '5':
-    echo '5 <br>';
-    $a++;    
-  case '6':
-    echo '6 <br>';
-    $a++; 
-  case '7':
-    echo '7 <br>';
-    $a++;  
-  case '8':
-    echo '8 <br>';
-    $a++; 
-  case '9':
-    echo '9 <br>';
-    $a++;  
-  case '10':
-    echo '10 <br>';
-    $a++;
-  case '11':
-    echo '11 <br>';
-    $a++;
-  case '12':
-    echo '12 <br>';
-    $a++; 
-  case '13':
-    echo '13 <br>';
-    $a++; 
-  case '14':
-    echo '14 <br>';
-    $a++;    
-  case '15':
-    echo '15 <br>';
-    $a++; 
-    break;
-  default:
-    echo 'что-то пошло не так...';
-    break;
-}*/
+$i = 0;
+do {
+  if ($i == 0) 
+    echo $i . " - ноль<br>";
+  elseif ($i % 2 == 1) 
+    echo $i . " - нечетное число<br>";
+  else 
+    echo $i . " - четное число<br>";
+  $i++;
+} while ($i <= 10);
 
 //Задание №3
-/*function sum($a, $b){
-  return $a + $b;
+$arr = [
+  "Московская область" => [
+    "Москва", "Зеленоград", "Клин"
+  ],
+  "Ленинградская область" => [
+    "Санкт-Петербург", "Всеволожск", "Павловск", "Кронштадт"
+  ],
+  "Пермский край" => [
+    "Пермь", "Березники", "Губаха"
+  ]
+];
+foreach ($arr as $region => $city) {
+  echo $region . ":<br>" . implode(', ', $city) . "<br>";
 }
-
-function sub($a, $b){
-  return $a - $b;
-}
-
-function multi($a, $b){
-  return $a * $b;
-}
-
-function div($a, $b){
-  return $a / $b;
-}
-*/
-//echo sum(2,3)."<br>";
-//echo sub(2,3)."<br>";
-//echo multi(2,3)."<br>";
-//echo div(2,3)."<br>";
 
 //Задание №4
-/*function mathOperation($arg1, $arg2, $operation){
-  switch ($operation) {
-    case '+':
-      $operation = sum($arg1, $arg2);
-      echo "$operation";
-      break;
-    case '-':
-      $operation = sub($arg1, $arg2);
-      echo "$operation";
-      break;
-    case '*':
-      $operation = multi($arg1, $arg2);
-      echo "$operation";
-      break;
-    case '/':
-      $operation = div($arg1, $arg2);
-      echo "$operation";
-      break;
-    default:
-      echo 'что-то пошло не так...';
-  }
-
+function translit($str){
+$arr = ['a' =>'a',
+        'б' => 'b',
+        'в' => 'v',
+        'г' => 'g',
+        'д' => 'd',
+        'е' => 'e',
+        'ж' => 'zh',
+        'з' => 'z',
+        'и' => 'i',
+        'к' => 'k',
+        'л' => 'l',
+        'м' => 'm',
+        'н' => 'n',
+        'о' => 'o',
+        'п' => 'p',
+        'р' => 'r',
+        'с' => 's',
+        'т' => 't',
+        'у' => 'u',
+        'ф' => 'f',
+        'х' => 'h',
+        'ц' => 'ts',
+        'ч' => 'ch',
+        'ш' => 'sh',
+        'щ' => 'sch',
+        'ы' => 'y',
+        'ь' => '\'',
+        'ъ' => '',
+        'э' => 'e',
+        'ю' => 'yu',
+        'я' => 'ya',
+        'Б' => 'B',
+        'В' => 'V',
+        'Г' => 'G',
+        'Д' => 'D',
+        'Е' => 'E',
+        'Ж' => 'Zh',
+        'З' => 'Z',
+        'И' => 'I',
+        'К' => 'K',
+        'Л' => 'L',
+        'М' => 'M',
+        'Н' => 'N',
+        'О' => 'O',
+        'П' => 'P',
+        'Р' => 'R',
+        'С' => 'S',
+        'Т' => 'T',
+        'У' => 'U',
+        'Ф' => 'F',
+        'Х' => 'H',
+        'Ц' => 'Ts',
+        'Ч' => 'Ch',
+        'Ш' => 'Sh',
+        'Щ' => 'Sch',
+        'Э' => 'E',
+        'Ю' => 'Yu',
+        'Я' => 'Ya'];
+$newStr = strtr($str, $arr);
+  return $newStr;
 }
-echo mathOperation(4,2,'*');
-*/
+
+echo translit('Съешь апельсинчик');
+
 //Задание №5
-/*function power($val, $pow){
-  if ($pow == 1) {
-    return $val;
-  }
-  else{
-    return $val * power($val, $pow - 1);
-  }
+function change($str){
+  $newStr = strtr($str, ' ', '_');
+  return $newStr;
 }
 
-echo power(2,4);
-*/
+echo change('Merry Christmas and Happy New Year');
 
-//Задание №6
-$hour = date('H');
-$minute = date('i');
-echo $hour." часа ".$minute." минут";
-?>
+//Задание №6 - см. myphp_template.php
+ //Задание № 7
+ for ($i=0; $i < 10; print $i . "<br>", $i++) { }
+ 
+//Задание №8
+$arr = [
+  "Московская область" => [
+    "Москва", "Зеленоград", "Клин"
+  ],
+  "Ленинградская область" => [
+    "Санкт-Петербург", "Всеволожск", "Павловск", "Кронштадт"
+  ],
+  "Пермский край" => [
+    "Пермь", "Березники", "Губаха"
+  ]
+];
+foreach ($arr as $region => $cities) {
+  foreach ($cities as $city) {
+    if (mb_substr($city, 0, 1) == 'К') {
+      echo $city . "<br>";
+    }
+  }
+}
+*/
+//Задание №9
+function translit($str){
+  $arr = ['a' =>'a',
+          'б' => 'b',
+          'в' => 'v',
+          'г' => 'g',
+          'д' => 'd',
+          'е' => 'e',
+          'ж' => 'zh',
+          'з' => 'z',
+          'и' => 'i',
+          'й' => 'i',
+          'к' => 'k',
+          'л' => 'l',
+          'м' => 'm',
+          'н' => 'n',
+          'о' => 'o',
+          'п' => 'p',
+          'р' => 'r',
+          'с' => 's',
+          'т' => 't',
+          'у' => 'u',
+          'ф' => 'f',
+          'х' => 'h',
+          'ц' => 'ts',
+          'ч' => 'ch',
+          'ш' => 'sh',
+          'щ' => 'sch',
+          'ы' => 'y',
+          'ь' => '\'',
+          'ъ' => '',
+          'э' => 'e',
+          'ю' => 'yu',
+          'я' => 'ya',
+          'Б' => 'B',
+          'В' => 'V',
+          'Г' => 'G',
+          'Д' => 'D',
+          'Е' => 'E',
+          'Ж' => 'Zh',
+          'З' => 'Z',
+          'И' => 'I',
+          'Й' => 'I',
+          'К' => 'K',
+          'Л' => 'L',
+          'М' => 'M',
+          'Н' => 'N',
+          'О' => 'O',
+          'П' => 'P',
+          'Р' => 'R',
+          'С' => 'S',
+          'Т' => 'T',
+          'У' => 'U',
+          'Ф' => 'F',
+          'Х' => 'H',
+          'Ц' => 'Ts',
+          'Ч' => 'Ch',
+          'Ш' => 'Sh',
+          'Щ' => 'Sch',
+          'Э' => 'E',
+          'Ю' => 'Yu',
+          'Я' => 'Ya',
+          ' ' => '_'];
+  $newStr = strtr($str, $arr);
+    return $newStr;
+  }
+  
+  echo translit('Говорят, чтобы уверенно чувствоать себя в новом ЯП, нужно писать код 800 часов');

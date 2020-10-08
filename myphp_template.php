@@ -13,7 +13,7 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 	<meta name="author" content="Luka Cvrk (www.solucija.com)" />
 	<link rel="stylesheet" href="css/main.css" type="text/css" />
-	<title><?= $title?></title>;
+	<title><?= $title?></title>
 	
 </head>
 <body>
@@ -22,11 +22,13 @@
 		<h1><?= $h1?></h1>
 		
 		<ul id="menu">
-			<li><a href="#">home</a></li>
-			<li><a href="#">archive</a></li>
-			<li><a href="#">contact</a></li>
-		</ul>
-	
+			<?php $menu = ['home', 'archive', 'contact'];
+			for ($i=0; $i < count($menu); $i++) :?>
+					<li><?= $menu[$i]?></li>
+			<?php
+					endfor
+					?>
+		
 		<div class="post">
 			<div class="details">
 				<h2><a href="#">Nunc commodo euismod massa quis vestibulum</a></h2>
